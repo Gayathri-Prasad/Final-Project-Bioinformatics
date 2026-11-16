@@ -1,1 +1,10 @@
+Goal: Understand the molecular cause behind the mutant dumpy phenotype in Drosophila melanogaster.
+Step 1: Transferring the sequences to the terminal
+I already have the sequences (fasta files) stored on my device from my genetics lab work. These sequences were obtained through DNA extraction and purification.
+In order to perform alignment and compare both the wild-type and mutant fruit fly DNA sequences, I must first transfer the sequences to the terminal. 
+For a file named "Reference.gb," go to the Windows powershell and use the following command:
+  scp "C:\Users\prasa\Downloads\Reference.gb" gprasad3@sabine.rcdc.uh.edu:/project/stuckert/gprasad3/Final_project/
+I repeated the same for my mutant sequence file saved as "mutant.fasta."
 
+Step 2: Converting the ab file to a fasta file
+Since I will be using MAFFT for alignment, I need to convert my reference file to the standard fasta format.
