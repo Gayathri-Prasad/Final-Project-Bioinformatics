@@ -6,5 +6,11 @@ For a file named "Reference.gb," go to the Windows powershell and use the follow
   scp "C:\Users\prasa\Downloads\Reference.gb" gprasad3@sabine.rcdc.uh.edu:/project/stuckert/gprasad3/Final_project/
 I repeated the same for my mutant sequence file saved as "mutant.fasta."
 
-Step 2: Converting the ab file to a fasta file
-Since I will be using MAFFT for alignment, I need to convert my reference file to the standard fasta format.
+Step 2: Converting the gb file to a fasta file
+Since I will be using MAFFT for alignment, I need to convert my reference file from a GenBank format to the standard fasta format.
+This can be done using SeqIO, which is under Biopython.
+First, download Biopython if you haven't already:
+  pip install --user biopython
+Then, we can use SeqIO to convert the file:
+  python3 -c "from Bio import SeqIO; SeqIO.convert('Reference.gb', 'genbank', 'Reference.fasta', 'fasta')"
+*Note that my input file was named Reference.gb and the SeqIO command was run inside the same directory where the file was located.
