@@ -14,3 +14,11 @@ First, download Biopython if you haven't already:
 Then, we can use SeqIO to convert the file:
   python3 -c "from Bio import SeqIO; SeqIO.convert('Reference.gb', 'genbank', 'Reference.fasta', 'fasta')"
 *Note that my input file was named Reference.gb and the SeqIO command was run inside the same directory where the file was located.
+
+Step 3: Removing hidden return characters
+Since the files were uploaded to the terminal from Windows, it might contain hidden return characters that could cause errors when using MAFFT. 
+These characters can be removed using dos2unix:
+  dos2unix Reference.fasta
+I ran the same step for my other file "mutant.fasta" as well.
+
+Step 4: 
