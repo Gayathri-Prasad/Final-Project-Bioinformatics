@@ -21,4 +21,24 @@ These characters can be removed using dos2unix:
   dos2unix Reference.fasta
 I ran the same step for my other file "mutant.fasta" as well.
 
-Step 4: 
+Step 4: Running the alignment
+MAFFT was already downloaded, so all I had to do was include its absolute path when running the command.
+  /project/stuckert/bioinformatics/software/mafft-7.525-without-extensions/bin/mafft --auto combined.fasta > Aligned.fasta
+*Exporting the path to MAFFT beforehand is also an option.
+
+Step 5: Checking the alignment results
+Once the alignment was complete, I checked the output file "Aligned.fasta" using the following commands:
+  grep ">" Aligned.fasta
+Note that this gave me two lines, one for the header of the mutant sequence and one for the header of the wild-type sequence.
+    less Aligned.fasta
+Using this command, I was able to scroll through the whole file and find regions of mismatch, indicated using dashes "-" on the sequence.
+
+Step 6: Making a visual on R studio
+In order to visualize the mismatch, I used R studio. 
+First, I had to download the file onto my computer. So I went to Windows powershell and typed:
+  scp gprasad3@sabine.rcdc.uh.edu:/project/stuckert/gprasad3/Final_project/Aligned.fasta C:\Users\prasa\Documents\
+Now I can open the file on R studio.
+
+Step 7:
+
+
