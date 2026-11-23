@@ -38,7 +38,7 @@ In order to visualize the mismatch, I used R studio.
 First, I had to download the file onto my computer. So I went to Windows powershell and typed:
   scp gprasad3@sabine.rcdc.uh.edu:/project/stuckert/gprasad3/Final_project/Aligned.fasta C:\Users\prasa\Documents\
 Now I can open the file on R studio.
-Because the dumpy mutation is a very large (around 7.4 kilobases) insertion, I chose to make a visualization for the 100 bp at the beginning and end regions of the insertion.
+Because the dumpy mutation is a very large (around 7.4 kb) insertion, I chose to make a visualization for the 100 bp at the beginning and end regions of the insertion.
   library(ggmsa)
   ggmsa("C:/Users/prasa/Downloads/Aligned.fasta", 
                  start = 47700, 
@@ -48,5 +48,16 @@ Because the dumpy mutation is a very large (around 7.4 kilobases) insertion, I c
 This created a plot at the beginning site of the insertion, which I saved onto my device.
 I did the same for the end range by changing the start point to 55100 and the end point to 55200.
 
-Step 7: 
+Step 7: Using Blastn to better visualize the alignment mismatch
+I wanted a better way to see the where the insertion occurs, so I used blastn for a second alignment.
+I downloaded blast first:
+  wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.16.0/ncbi-blast-2.16.0+-x64-linux.tar.gz
+  tar -xzf ncbi-blast-2.16.0+-x64-linux.tar.gz
+Now you can run blastn:
+  ./ncbi-blast-2.16.0+/bin/blastn -query mutant.fasta -subject Reference.fasta -outfmt 0 -out blast_output.txt
+  cat blast_output.txt
+This showed me that the query matched the reference in two separate chunks, one from 1-685 and the second chunk from 8095-8470. 
+The huge region that was missing in the alignment from 685-8095 was where the insertion occurred, spanning approximately 7410 bases.
+
+Step 8: Finding additional information about the gene
 
